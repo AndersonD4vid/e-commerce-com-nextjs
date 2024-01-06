@@ -13,6 +13,7 @@ import { Button } from "./button";
 import { Card } from "./card";
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTrigger,
@@ -20,6 +21,7 @@ import {
 import { signIn, signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
+import Link from "next/link";
 
 const Header = () => {
   const { data, status } = useSession();
@@ -85,33 +87,39 @@ const Header = () => {
               </Button>
             )}
 
-            <a href="/">
+            <SheetClose asChild>
+              <Link href="/">
+                <Button
+                  className="w-full justify-start gap-5 bg-white text-[#333]"
+                  variant="ghost"
+                >
+                  <HomeIcon />
+                  Início
+                </Button>
+              </Link>
+            </SheetClose>
+
+            <SheetClose asChild>
               <Button
                 className="w-full justify-start gap-5 bg-white text-[#333]"
                 variant="ghost"
               >
-                <HomeIcon />
-                Início
+                <PercentIcon />
+                Ofertas
               </Button>
-            </a>
+            </SheetClose>
 
-            <Button
-              className="w-full justify-start gap-5 bg-white text-[#333]"
-              variant="ghost"
-            >
-              <PercentIcon />
-              Ofertas
-            </Button>
-
-            <a href="/catalog">
-              <Button
-                className="w-full justify-start gap-5 bg-white text-[#333]"
-                variant="ghost"
-              >
-                <ListOrderedIcon />
-                Catálogo
-              </Button>
-            </a>
+            <SheetClose asChild>
+              <Link href="/catalog">
+                <Button
+                  className="w-full justify-start gap-5 bg-white text-[#333]"
+                  variant="ghost"
+                >
+                  <ListOrderedIcon />
+                  Catálogo
+                </Button>
+              </Link>
+            </SheetClose>
           </div>
         </SheetContent>
       </Sheet>
