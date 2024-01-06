@@ -20,6 +20,7 @@ export default async function Home() {
           height={0}
           className="h-auto w-full"
           sizes="100vw"
+          priority
           alt="Até 55% de desconto esse mês!"
         />
 
@@ -40,6 +41,7 @@ export default async function Home() {
           height={0}
           className="h-auto w-full"
           sizes="100vw"
+          priority
           alt="Até 55% de desconto em mouses!"
         />
       </div>
